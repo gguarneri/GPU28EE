@@ -9,7 +9,27 @@
             "type": "cuda-gdb",
             "request": "launch",
             "program": "${workspaceFolder}/proj_template/build/bin/cuda_app",
-        }
-
+        },
+        {
+            "name": "Soma vetores",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/sum_vectors/build/bin/sum_vectors",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}/sum_vectors",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "miDebuggerPath": "cuda-gdb", // Aponta para o gdb da Nvidia
+            "setupCommands": [
+                {
+                    "description": "Habilitar impressão bonita para gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ],
+            "preLaunchTask": "CMake: build"
+        },
     ]
 }
